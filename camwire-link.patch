@@ -1,0 +1,59 @@
+--- camwire2-1.9.0-Source/camwire/CMakeLists.txt.orig	2011-02-17 03:31:12.000000000 +0100
++++ camwire2-1.9.0-Source/camwire/CMakeLists.txt	2011-08-06 20:11:05.519736684 +0200
+@@ -45,6 +45,7 @@
+ 	VERSION ${Camwire_VERSION_STRING}
+ 	SOVERSION ${Camwire_SOVERSION}
+ 	SKIP_BUILD_RPATH ON)
++target_link_libraries(camwire dc1394 m)
+ 
+ # What to install where:
+ install (TARGETS camwire camwire_static DESTINATION lib)
+--- camwire2-1.9.0-Source/examples/cammonitor/CMakeLists.txt.orig	2011-02-17 03:31:14.000000000 +0100
++++ camwire2-1.9.0-Source/examples/cammonitor/CMakeLists.txt	2011-08-07 07:21:57.196383177 +0200
+@@ -15,7 +15,7 @@ set_target_properties (cammonitor PROPER
+ 	LINK_FLAGS ${Camwire_SDL_LIBS}
+ 	SKIP_BUILD_RPATH ON)
+ target_link_libraries (cammonitor
+-	libcamwire.a
++	camwire
+ 	dc1394
+ 	netpbm
+ 	m
+--- camwire2-1.9.0-Source/examples/CMakeLists.txt.orig	2011-02-17 03:31:14.000000000 +0100
++++ camwire2-1.9.0-Source/examples/CMakeLists.txt	2011-08-07 07:21:45.499716516 +0200
+@@ -9,7 +9,7 @@ add_executable (hello  hello.c)
+ set_target_properties (hello PROPERTIES
+ 	SKIP_BUILD_RPATH ON)
+ target_link_libraries (hello
+-	libcamwire.a
++	camwire
+ 	dc1394
+ 	m)
+ 
+@@ -17,7 +17,7 @@ add_executable (camlatency  camlatency.c
+ set_target_properties (camlatency PROPERTIES
+ 	SKIP_BUILD_RPATH ON)
+ target_link_libraries (camlatency
+-	libcamwire.a
++	camwire
+ 	dc1394
+ 	m)
+ 
+@@ -25,7 +25,7 @@ add_executable (measureconf_1394  measur
+ set_target_properties (measureconf_1394 PROPERTIES
+ 	SKIP_BUILD_RPATH ON)
+ target_link_libraries (measureconf_1394
+-	libcamwire.a
++	camwire
+ 	dc1394
+ 	m)
+ 
+@@ -33,7 +33,7 @@ add_executable (resetbus_1394  resetbus_
+ set_target_properties (resetbus_1394 PROPERTIES
+ 	SKIP_BUILD_RPATH ON)
+ target_link_libraries (resetbus_1394
+-	libcamwire.a
++	camwire
+ 	dc1394
+ 	m)
+ 

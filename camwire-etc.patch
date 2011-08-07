@@ -1,0 +1,11 @@
+--- camwire2-1.9.0-Source/CMakeLists.txt.orig	2011-02-17 03:31:14.000000000 +0100
++++ camwire2-1.9.0-Source/CMakeLists.txt	2011-08-07 01:26:59.533060518 +0200
+@@ -25,7 +25,7 @@
+ add_subdirectory (examples)
+ 
+ # What to install where:
+-install (DIRECTORY etc/ DESTINATION etc PATTERN "RCS" EXCLUDE)
++install (DIRECTORY etc/ DESTINATION /etc PATTERN "RCS" EXCLUDE)
+ install (DIRECTORY share/ DESTINATION share)
+ 
+ 
