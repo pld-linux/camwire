@@ -1,17 +1,15 @@
 Summary:	Digital camera library for Linux
 Summary(pl.UTF-8):	Biblioteka obsługi kamer cyfrowych dla Linuksa
 Name:		camwire
-Version:	1.9.0
+Version:	1.9.3
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 # camwire1 was for libdc1394 < 2.0, camwire2 for libdc1394 2.0+
 Source0:	http://kauri.auck.irl.cri.nz/~johanns/camwire/download/camwire2/camwire2-%{version}-Source.tar.gz
-# Source0-md5:	94edddf9f4b7efb00a695ed4fbd22f9f
-Patch0:		%{name}-fixes.patch
-Patch1:		%{name}-netpbm.patch
-Patch2:		%{name}-link.patch
-Patch3:		%{name}-etc.patch
+# Source0-md5:	1a49e2d9a751f3567e4b05a756be3b54
+Patch0:		%{name}-link.patch
+Patch1:		%{name}-etc.patch
 URL:		http://kauri.auck.irl.cri.nz/~johanns/camwire/
 BuildRequires:	SDL-devel
 BuildRequires:	cmake >= 2.6
@@ -75,10 +73,10 @@ Camwire.
 %setup -q -n camwire2-%{version}-Source
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
-%patch3 -p1
 
 %build
+# disable unused-result warning, compilation failure with -Werror
+CFLAGS="%{rpmcflags} -Wno-unused-result"
 %cmake
 %{__make} -j1
 

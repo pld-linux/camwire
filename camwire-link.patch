@@ -10,12 +10,13 @@
  install (TARGETS camwire camwire_static DESTINATION lib)
 --- camwire2-1.9.0-Source/examples/cammonitor/CMakeLists.txt.orig	2011-02-17 03:31:14.000000000 +0100
 +++ camwire2-1.9.0-Source/examples/cammonitor/CMakeLists.txt	2011-08-07 07:21:57.196383177 +0200
-@@ -15,7 +15,7 @@ set_target_properties (cammonitor PROPER
+@@ -15,7 +15,8 @@ set_target_properties (cammonitor PROPER
  	LINK_FLAGS ${Camwire_SDL_LIBS}
  	SKIP_BUILD_RPATH ON)
  target_link_libraries (cammonitor
 -	libcamwire.a
 +	camwire
++       SDL
  	dc1394
  	netpbm
  	m
