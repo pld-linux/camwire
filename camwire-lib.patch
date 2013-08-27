@@ -1,0 +1,9 @@
+--- camwire2-1.9.3-Source/camwire/CMakeLists.txt.orig	2013-08-27 16:41:28.831798637 +0200
++++ camwire2-1.9.3-Source/camwire/CMakeLists.txt	2013-08-27 16:56:49.459835509 +0200
+@@ -48,5 +48,5 @@
+ target_link_libraries(camwire dc1394 m)
+ 
+ # What to install where:
+-install (TARGETS camwire camwire_static DESTINATION lib)
++install (TARGETS camwire camwire_static DESTINATION lib${LIB_SUFFIX})
+ install (FILES camwirebus.h camwire.h camwire_handle.h DESTINATION include/camwire)

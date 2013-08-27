@@ -10,6 +10,7 @@ Source0:	http://kauri.auck.irl.cri.nz/~johanns/camwire/download/camwire2/camwire
 # Source0-md5:	1a49e2d9a751f3567e4b05a756be3b54
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-etc.patch
+Patch2:		%{name}-lib.patch
 URL:		http://kauri.auck.irl.cri.nz/~johanns/camwire/
 BuildRequires:	SDL-devel
 BuildRequires:	cmake >= 2.6
@@ -73,6 +74,7 @@ Camwire.
 %setup -q -n camwire2-%{version}-Source
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 # disable unused-result warning, compilation failure with -Werror
