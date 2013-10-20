@@ -1,13 +1,13 @@
 Summary:	Digital camera library for Linux
 Summary(pl.UTF-8):	Biblioteka obsługi kamer cyfrowych dla Linuksa
 Name:		camwire
-Version:	1.9.3
+Version:	1.9.4
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 # camwire1 was for libdc1394 < 2.0, camwire2 for libdc1394 2.0+
 Source0:	http://kauri.auck.irl.cri.nz/~johanns/camwire/download/camwire2/camwire2-%{version}-Source.tar.gz
-# Source0-md5:	1a49e2d9a751f3567e4b05a756be3b54
+# Source0-md5:	4c7584e3c45b6a1d3e53b74d5798744d
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-etc.patch
 Patch2:		%{name}-lib.patch
