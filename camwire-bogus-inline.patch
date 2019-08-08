@@ -1,0 +1,46 @@
+--- camwire2-2.0.0-Source/camwire/camwire_handle.h.orig	2015-05-21 23:48:01.000000000 +0200
++++ camwire2-2.0.0-Source/camwire/camwire_handle.h	2019-08-08 15:40:40.958729338 +0200
+@@ -74,11 +74,11 @@
+ /* This is the Camwire handle type. */
+ 
+ 
+-inline Camera_handle camwire_handle_get_camera(const Camwire_handle c_handle);
++Camera_handle camwire_handle_get_camera(const Camwire_handle c_handle);
+ /* Returns the dc1394camera_t camera handle for the given camwire
+    handle.  Needed by many dc1394 functions in Camwire. */
+ 
+-inline User_handle camwire_bus_get_userdata(const Camwire_handle c_handle);
++User_handle camwire_bus_get_userdata(const Camwire_handle c_handle);
+ /* Returns a pointer to the user data structure for the given camwire
+    handle.  Needed for internal status maintenance in Camwire. */
+ 
+--- camwire2-2.0.0-Source/camwire/camwirebus.c.orig	2015-05-21 23:39:48.000000000 +0200
++++ camwire2-2.0.0-Source/camwire/camwirebus.c	2019-08-08 15:41:09.205242980 +0200
+@@ -203,7 +203,7 @@
+    Returns the dc1394camera_t camera handle for the given camwire
+    handle.  Needed by many dc1394 functions in Camwire.
+ */
+-inline Camera_handle camwire_handle_get_camera(const Camwire_handle c_handle)
++Camera_handle camwire_handle_get_camera(const Camwire_handle c_handle)
+ {
+     return c_handle->camera;
+ }
+@@ -213,7 +213,7 @@
+    Returns a pointer to the user data structure for the given camwire
+    handle.  Needed for internal status maintenance in Camwire.
+ */
+-inline User_handle camwire_bus_get_userdata(
++User_handle camwire_bus_get_userdata(
+     const Camwire_handle c_handle)
+ {
+     return c_handle->userdata;
+--- camwire2-2.0.0-Source/examples/measureconf_1394.c.orig	2012-01-10 23:20:53.000000000 +0100
++++ camwire2-2.0.0-Source/examples/measureconf_1394.c	2019-08-08 15:47:50.856400383 +0200
+@@ -202,7 +202,6 @@
+ 								      const int mode);
+ /* inline static int fixed_image_size(const dc1394video_mode_t video_mode); */
+ inline static int variable_image_size(const dc1394video_mode_t video_mode);
+-inline dc1394camera_t * get_camera(const Camwire_handle c_handle);
+ 
+ 
+ /*
