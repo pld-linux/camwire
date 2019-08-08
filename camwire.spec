@@ -12,6 +12,7 @@ Patch0:		%{name}-link.patch
 Patch1:		%{name}-etc.patch
 Patch2:		%{name}-lib.patch
 Patch3:		%{name}-bogus-inline.patch
+Patch4:		%{name}-format.patch
 URL:		http://kauri.auck.irl.cri.nz/~johanns/camwire/
 BuildRequires:	SDL-devel
 BuildRequires:	cmake >= 2.6
@@ -77,6 +78,7 @@ Camwire.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 # disable unused-result warning, compilation failure with -Werror

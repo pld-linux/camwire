@@ -1,0 +1,11 @@
+--- camwire2-2.0.0-Source/examples/cammonitor/cammonitor.c.orig	2011-04-13 00:13:21.000000000 +0200
++++ camwire2-2.0.0-Source/examples/cammonitor/cammonitor.c	2019-08-08 16:34:30.242313655 +0200
+@@ -57,7 +57,7 @@
+ #define DEFAULT_SAVE_DELAY	0.0
+ #define SAFE_FRAME_PERIOD	1.5
+ #define MAX_FILENAME		1000
+-#define MAX_MESSAGE		1000
++#define MAX_MESSAGE		1200
+ #define MAX_IMAGE_HEADER	200
+ #define MAX_TIMESTAMP		50
+ #define MAX_KEY_INPUT		100
