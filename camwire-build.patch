@@ -1,0 +1,36 @@
+--- camwire2-2.0.0-Source/camwire/camwire.c.orig	2015-05-21 23:38:31.000000000 +0200
++++ camwire2-2.0.0-Source/camwire/camwire.c	2023-07-09 13:17:11.497358571 +0200
+@@ -3098,13 +3098,10 @@ int camwire_debug_print_status(const Cam
+     else
+ 	fprintf(stderr, "               (null)\n");
+     fprintf(stderr, "features:");
+-    if (internal_status->feature_set.feature)
+     {
+         fprintf(stderr, "\n");
+ 	dc1394_feature_print_all(&(internal_status->feature_set), stderr);
+     }
+-    else
+-	fprintf(stderr, "               (null)\n");
+     fprintf(stderr, "frame:");
+     capture_frame = internal_status->frame;
+     if (capture_frame)
+@@ -5130,7 +5128,7 @@ static uint32_t convert_framerate2numpac
+   Returns the libdc1394 colour coding ID that supports the given pixel
+   coding, or 0 on error.  The coding_list argument must not be empty.
+ */
+-static uint32_t convert_pixelcoding2colorid(const Camwire_pixel coding,
++static dc1394color_coding_t convert_pixelcoding2colorid(const Camwire_pixel coding,
+ 					    const dc1394color_codings_t *coding_list)
+ {
+     switch (coding)
+--- camwire2-2.0.0-Source/examples/cammonitor/cammonitor.c.orig	2023-07-09 13:33:19.929405910 +0200
++++ camwire2-2.0.0-Source/examples/cammonitor/cammonitor.c	2023-07-09 18:09:53.211009381 +0200
+@@ -1817,7 +1817,7 @@ static int set_colour_corr(const Camwire
+   Returns the colour correction coefficients obtained from the user,
+   after setting the camera accordingly.
+ */
+-static void set_colour_coef(const Camwire_handle c_handle, double coef[])
++static void set_colour_coef(const Camwire_handle c_handle, double coef[9])
+ {
+     int gotinput;
+     

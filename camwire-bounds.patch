@@ -37,3 +37,13 @@
  	}
  	else	
  	{
+--- camwire2-2.0.0-Source/camwire/camwire.c.orig	2015-05-21 23:38:31.000000000 +0200
++++ camwire2-2.0.0-Source/camwire/camwire.c	2023-07-09 12:05:54.227004109 +0200
+@@ -3355,6 +3355,7 @@ static FILE * open_named_conf_file(const
+ 	}
+     }
+     strncat(conffilename, filename, CAMWIRE_ID_MAX_CHARS);
++    conffilename[CAMWIRE_ID_MAX_CHARS] = '\n';
+     strncat(conffilename, CONFFILE_EXTENSION,
+ 	    CONFFILE_EXTENSION_MAX_CHARS);
+     return fopen(conffilename, "r");
