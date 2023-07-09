@@ -1,0 +1,39 @@
+--- camwire2-2.0.0-Source/examples/cammonitor/cammonitor.c.orig	2023-07-09 10:46:29.034985838 +0200
++++ camwire2-2.0.0-Source/examples/cammonitor/cammonitor.c	2023-07-09 11:49:33.674482685 +0200
+@@ -2340,20 +2340,23 @@ static void filename_framenumber(char *n
+ 				 const int strip,
+ 				 const long frameno)
+ {
+-    size_t namelen, tokenindex;
++    size_t namelen, tokenindex, outlen;
+     char *token;
+ 
+     namelen = strlen(filename);
+     token = strstr(filename, FRAMENUMBER_TOKEN);
+     if (token == NULL)  tokenindex = namelen;
+     else                tokenindex = token - filename;
+-    strncpy(new_name, filename, tokenindex);
+-    new_name[tokenindex] = '\0';
++
++    outlen = (tokenindex < MAX_FILENAME - 12) ? tokenindex : (MAX_FILENAME - 12);
++    memcpy(new_name, filename, outlen);
++    new_name[outlen] = '\0';
+     if (token != NULL)
+     {
+ 	if (!strip)  sprintf(&new_name[tokenindex], "%011ld", frameno);
+ 	tokenindex += strlen(FRAMENUMBER_TOKEN);
+     }
++    if (tokenindex + strlen(filename + tokenindex) + 1 <= MAX_FILENAME)
+     strcat(new_name, &filename[tokenindex]);
+ }
+ 
+@@ -2817,7 +2820,8 @@ static void settings_load(const Camwire_
+ 	    set->save_num_images = new_settings.save_num_images;
+ 	    set->save_delay = new_settings.save_delay;
+ 	    strncpy(set->imagefilename, new_settings.imagefilename,
+-		    MAX_FILENAME);
++		    MAX_FILENAME-1);
++	    set->imagefilename[MAX_FILENAME-1] = '\0';
+ 	}
+ 	else	
+ 	{
